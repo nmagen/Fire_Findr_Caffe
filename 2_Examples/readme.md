@@ -50,26 +50,37 @@ Finally ```solver.partotxt``` contains information about the optimisaiton method
 
 This will run and generate 
 
-Additionally, it will genrate a serius of checkpoint files which contain the model weights and momentum. Haveing the check point files allows one to resatart at that point in the optimisation if the process gets interupted (for example if you get kicked off your spot instance).
+Additionally, it will genrate a serius of checkpoint files which contain the model weights and momentum. Haveing the check point files allows one to resatart at that point in the optimisation if the process gets interupted (for example if you get kicked off your spot instance). The command to restart a computiaotn is.
 
+```
+./build/tools/caffe train --solver=models/bvlc_reference_caffenet/solver.prototxt --snapshot=models/bvlc_reference_caffenet/caffenet_train_10000.solverstate
+```
 
-**incoverating your own images**
+**incoperating your own images**
 
-get your own images
+Setting up it fairly similar to the above with the notible exceptions
 
-then move some shit arround....
+* generating the lmdb file
 
+* if you have a different number of output layers
 
+to genreate the lmdb file you will need to actually understand the script and make some modificaitons to it....
+
+for changeing the nubmer of nodes on the last layer of the nural net. 
 
 
 **classifying images**
 
+Once you ahve gnerated your ```.caffemodel``` file you can classify new unseen images. One of the easiest ways  to do this is by making use the caffe pyhtogn model. The authers provide a ipthon note book on this. I decided to adapt this into a pyhton program with the added fucntionality of printing hte perdicted class name insdead just he class number. Take a look at it [here](/class.py)
+
 
 ### flickr style example
 
-this examples illustrates the concet of transfer learning. TL is a way to use 
+This examples illustrates how caffe can be used to do Transfer Learning (TL). TL is a way to make use of a network trained for one purpose in a differnt task. The advantage of this is mostly with regards to computaitonal effecify. I will talk more about hte pros and cons of TL in seciton 3.
 
-I will talk more about hte pros/ and cons of TL in seciton 3
+
+here what we do is...
+
 
 
 
