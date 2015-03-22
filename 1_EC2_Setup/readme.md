@@ -270,13 +270,12 @@ all this involves is uncommenting two lines which is explained in the file. Now 
 make -j $(nproc)
 ```
 
-If you get an error 
+For some reason blas and atlas appended .3.0 on the end of their names which messed things up the first time I tried compiling. To fix this just type. 
 
-in /usr/lib
-
-sudo ln -s /usr/lib/atlas-base/libatlas.so.3.0 ./libatlas.so
-sudo ln -s /usr/lib/atlas-base/libcblas.so.3.0 ./libcblas.so
-
+```
+sudo ln -s /usr/lib/atlas-base/libatlas.so.3.0 /usr/lib/libatlas.so
+sudo ln -s /usr/lib/atlas-base/libcblas.so.3.0 /usr/lib/libcblas.so
+```
 
 and restart the process
 
