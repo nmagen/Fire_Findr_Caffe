@@ -14,7 +14,9 @@ Here I explain how to properly install the necessary software to get up and runn
 Here I work thoguth two relavant examples provided in the caffe github repo.
 
 
-### [Getting training images](/asdf)
+### [Getting Training Images](/3_Training_Images)
+
+
 
 
 
