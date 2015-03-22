@@ -9,5 +9,13 @@ Here I explan how I used the Deep learning framework [Caffe](http://caffe.berkel
 Here I explain how to properly install the necessary software to get up and running with Caffe.
 
 
+### [Working Examples](/2_Examples)
+
+Here I work thoguth two relavant examples provided in the caffe github repo.
+
+
+### [Getting training images](/asdf)
+
+
 
 
