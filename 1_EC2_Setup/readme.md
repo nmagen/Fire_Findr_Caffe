@@ -37,7 +37,7 @@ sudo apt-get update
 sudo apt-get -y upgrade
 ```
 
-Also some other importnant stuff (most of this should have been included with the os)
+Also some other important stuff (most of this should have been included with the os)
 
 ```sh
 sudo apt-get install -y gcc g++ gfortran build-essential git wget python-dev python-pip
@@ -100,13 +100,13 @@ Now restart with ```sudo reboot```.
 
 **CUDA**
 
-This will be the most challingin dependency to get working correctly. First install some extra drivers with.
+This will be the most challenging dependency to get working correctly. First install some extra drivers with.
 
 ```
 sudo apt-get install linux-image-extra-virtual
 ```
 
-I chose “choose package maintainers version” when prompted. Now disble nouveau as if conflics with the nvidia kernel.
+I chose “choose package maintainers version” when prompted. Now disable nouveau as if conflicts with the nvidia kernel.
 
 ```
 sudo vi /etc/modprobe.d/blacklist-nouveau.conf
@@ -134,14 +134,14 @@ sudo update-initramfs -u
 sudo reboot
 ```
 
-and isntall some headders
+and install some headers
 
 ```
 sudo apt-get install linux-source
 sudo apt-get install linux-headers-3.13.0-37-generic
 ```
 
-So now we ca bein to isntll CUDA.
+So now we can begin to install CUDA.
 
 ```
 wget http://developer.download.nvidia.com/compute/cuda/6_5/rel/installers/cuda_6.5.14_linux_64.run
@@ -166,7 +166,7 @@ install the samples
 ```
 
 
-Now we can check if we messed anyhting up. 
+Now we can check if we messed anything up. 
 
 ```
 cd /usr/local/cuda/samples/1_Utilities/deviceQuery
@@ -219,19 +219,98 @@ deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 6.5, CUDA Runtime Versi
 Result = PASS
 ```
 
+**cuDNN**
+
+cuDNN is a library of GPU primitives. Basically it helps GPU's run deep neural networks even faster. To get it first go to [NVIDA](https://developer.nvidia.com/cuDNN) website register and download.
+
+```
+tar -xzvf cudnn-6.5-linux-R1.tgz
+cd cudnn-6.5-linux-R1
+sudo cp lib* /usr/local/cuda/lib64/
+sudo cp cudnn.h /usr/local/cuda/include/
+```
 
 
+**Anaconda**
+
+This is not necessary but it makes life better.
+
+```
+wget http://09c8d0b2229f813c1b93-c95ac804525aac4b6dba79b00b39d1d3.r79.cf1.rackcdn.com/Anaconda-2.1.0-Linux-x86_64.sh
+bash Anaconda-2.1.0-Linux-x86_64.sh
+```
 
 
+**Caffe**
 
 
+Finally, we can begin to install Caffe. First, make sure that caffe can find important library by adding this to your .bashrc
+
+```
+export PATH="/usr/local/cuda-6.5/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/local/cuda-6.5/lib64:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/ubuntu/anaconda/lib:/usr/local/lib:/usr/lib"
+```
+
+Now downlaod.
+
+```
+git clone https://github.com/BVLC/caffe
+```
+
+now edit the make config. file. There are three things you want to do.
+
+* that you are using Anaconda.
+
+* that you have cuDNN installed and want to use it.
+
+all this involves is uncommenting two lines which is explained in the file. Now we can start the install process.
+
+```
+make -j $(nproc)
+```
+
+If you get an error 
+
+in /usr/lib
+
+sudo ln -s /usr/lib/atlas-base/libatlas.so.3.0 ./libatlas.so
+sudo ln -s /usr/lib/atlas-base/libcblas.so.3.0 ./libcblas.so
 
 
+and restart the process
 
+```
+make clean
+make -j $(nproc)
+```
 
+and now you can make the tests.
 
+```
+make test
+make runtest
+```
 
+Finally you will need to install the python client. First, install the prerequisite packages with 
 
+```
+sudo pip install -r python/requirements.txt
+```
+
+Most of these should have been installed by Ancona already.
+
+```
+make pycaffe
+```
+
+you will need to add ${caffe_root}/python/ to you pythonpath. This can be done by adding 
+
+```
+export PYTHONPATH=${PYTHONPATH}:${caffe_root}/python
+```
+
+In the next section I will work though some of the examples that they provide.
 
 
 
