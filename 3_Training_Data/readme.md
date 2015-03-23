@@ -12,48 +12,55 @@ To under stand what makes a "good" training set we need to think more about what
 
 Fundamentially we are try to detect things that are on fire that should not be on file. As humans we ahve a pritty good concept of what should and shold not be on fire. This understanding is derived from our life experinces. Building this traning set is our way of letting the algorithm experence things.
 
-Consistant with this:
+Consistant with:
 
---
+---
 
-**for an image with visable flams the alg need to understand that the object on fire is only important sometimes.**
+**For an image with visable flams the algorithm need to understand that the object on fire is only important sometimes.**
 
-For example houres and cars should never be on fire but but matches and lantern both should be on fire.
+For example houses and cars should never be on fire but matches, lanterns, candels both should be on fire. Simply put object that is "burning" need to be recignized. To acocmplish this I incoperated these words into my asdf:
 
-I incoperated this into my 
+* positive: house on fire, car on fire, wildfire, brush fire
 
+* negative: match on fire, lantern, candel.
 
 ---
 
 **The algorithm needs to understand the importance of smoke.**
 
-For example black smoke is likely form a fire but wite "smoke" is likely just a cloud.
+For example black smoke is likely form a fire but wite "smoke" is likely just a cloud. This disctincion is further complicated in images where there are no visable flams. in such a case it would be impossible to udnersntant if the sorce of the flams is of concer. I incoperated this into my traning set by using:
 
-This disctincion is further complicated in images where there are no visable flams. in such a case it would be impossible to udnersntant if the sorce of the flams is of concer.
+* positive: black smoke, fire smoke, 
+
+* negative: couds, white cloud blue sky
+
+Distinguishing smoke from a fire from a normal clound formation can be quire difficult as is shown in the image below.
+
+![jpg](asdf)
 
 ---
 
-(3) fire fighters and fire trucks (and different countrys)
+**The algorithm needs to damage that was uniquly caused by fire**
+
+For example a fire can damage a house but so also can earthquacks and tornados. While fire will likely occure after an earthquack or tornado...
+
+for example distinguishing these two images 
 
 
+
+* positive: fire damage
+
+* negative: earthquack damage, tornado damage
 
 
 ---
-Additionally, in an immage with both visible flams the alg need to also 
-
-Images where
-
- but white clounds
 
 
-
-
-(4) fire in the past tense...
-
-
+### Conclusions
 
 by disecting how humans have come to udnerstand what should and shold not be on fire we can begin ot make the traning data inorder to show the alg how to do it. 
 
+hopefully this discuion has shead some light... haha
 
 
 
