@@ -76,7 +76,7 @@ Once you have generated your ```.caffemodel``` file form the above you can class
 
 For example this image:
 
-![jpg](/cat.jpg)
+![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/2_Examples/cat.jpg)
 
 is correctly classifyed as:
 
@@ -99,12 +99,12 @@ here what we do is...
 R-CNN is a state-of-the-art detector that classifies region proposals by a finetuned Caffe model. For the full details of the R-CNN system and model, refer to its project site and the paper:
 
 
-![jpg](/fish-bike.jpg)
+![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/2_Examples/fish-bike.jpg)
 
 
 and detected at 
 
-![jpg](/fish-bike-detected.jpg)
+![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/2_Examples/fish-bike-detected.jpg)
 
 and we're good.
 
