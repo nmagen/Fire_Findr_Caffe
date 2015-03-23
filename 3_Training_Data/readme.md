@@ -83,5 +83,3 @@ In the next section we discuss and train our classifier.
 
 
 
-
-
