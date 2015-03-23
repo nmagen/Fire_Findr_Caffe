@@ -8,9 +8,11 @@ I will use flickr as the source of my images. The images that I am downlaoding w
 
 ### Discussion: building a good training set.
 
-After reviewing the literature...
+After reviewing the literature the most useful training samples for classification with a neural networks are those that lie on the edge of the class distributions in feature space. This concept is ullustrated in the below figire form [here](https://github.com/JBed/Fire_Findr/blob/master/3_Training_Data/intel_training.pdf).
 
-To understand what makes a "good" training set we need to think more about what we are actually trying to do. Fundamentally, we are trying to detect things that are on fire that should not be on fire. As humans we have a pretty good concept of what should and should not be on fire. This understanding is derived from our experiences. Building this training set is our way of letting the algorithm experience things.
+![png](https://raw.githubusercontent.com/JBed/Fire_Findr/master/3_Training_Data/training.png some text)
+
+
 
 Consistent with:
 
