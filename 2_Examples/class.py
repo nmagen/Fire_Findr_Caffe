@@ -32,5 +32,5 @@ prediction = net.predict([input_image])
 print 'predicted class:', prediction[0].argmax()
 
 #look in /opt/caffe/data/ilsvrc12/synset_words.txt for the meaning
-#to update...
+#to make this automatic
 
