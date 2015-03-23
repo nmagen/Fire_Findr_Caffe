@@ -57,28 +57,20 @@ Additionally, it will generate a series of checkpoint files which contain the mo
 ./build/tools/caffe train --solver=models/bvlc_reference_caffenet/solver.prototxt --snapshot=models/bvlc_reference_caffenet/caffenet_train_10000.solverstate
 ```
 
-**incorporating your own images**
+**Incorporating your own images**
 
-Setting up it fairly similar to the above with the notable exceptions
-
-* generating the lmdb file
-
-* if you have a different number of output layers
-
-to generate the mdb file you will need to actually understand the script and make some modifications to it....
-
-for changing the number of nodes on the last layer of the neural net. 
+Generating the lmdb files from your images is done is a similar way as described above. Since likely have a different number of output layers for the original model you will need to manually edit the ```train_val.prototet``` file to change the number of notes in the last layer.
 
 
-**classifying images**
+**Classifying Images**
 
-Once you have generated your ```.caffemodel``` file form the above you can classify new unseen images. One of the easiest ways  to do this is by making use the caffe python model. The authors provide a ipython notebook on this. I decided to adapt this into a python program with the added functionality of printing the predicted class name instead just the class number. Take a look at it [here](/class.py)
+Once you have generated your ```.caffemodel``` file from the above you can classify new unseen images. One of the easiest ways  to do this is by making use the caffe python model. The authors provide a ipython notebook on this. I decided to adapt this into a python program with the added functionality of printing the predicted class name instead just the class number. Take a look at it [here](/class.py)
 
 For example this image:
 
 ![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/2_Examples/cat.jpg)
 
-is correctly classifyed as:
+is correctly classified as:
 
 ```
 predicted class: 281
@@ -86,25 +78,61 @@ predicted class: 281
 
 ### Flickr Style Example
 
-This examples illustrates how caffe can be used to do Transfer Learning (TL). TL is a way to make use of a network trained for one purpose in a different task. The advantage of this is mostly with regards to computational efficiency. I will talk more about the pros and cons of TL in section 3.
+This examples illustrates how caffe can be used to do Transfer Learning (TL). TL is a way to make use of a network trained for one purpose in a different task. Assembling the necessary data files for this example is done by running provided python script.
 
+```
+python examples/finetune_flickr_style/assemble_data.py --workers=-1 --images=2000 --seed 831486
+```
 
-here what we do is...
+This should download ```solver.prototxt``` and ```bvlc_reference_caffenet.caffemodel```. Now we can start the training with
 
-
+```
+./build/tools/caffe train -solver models/finetune_flickr_style/solver.prototxt -weights models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel -gpu 0
+```
 
 
 ### R-CNN detector Example
 
-R-CNN is a state-of-the-art detector that classifies region proposals by a finetuned Caffe model. For the full details of the R-CNN system and model, refer to its project site and the paper:
+
+Regional convolutional neural networks (R-CNN) classify regions in an image. For the full details of the R-CNN system and model, refer to its project site and the paper [here](https://github.com/rbgirshick/rcnn). This specific example deals with classifying regions in the below image.
 
 
 ![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/2_Examples/fish-bike.jpg)
 
+This can be accomplished with 
 
-and detected at 
+```
+# Find, print, and display the top detections: person and bicycle.
+i = predictions_df['person'].argmax()
+j = predictions_df['bicycle'].argmax()
+
+# Show top predictions for top detection.
+f = pd.Series(df['prediction'].iloc[i], index=labels_df['name'])
+print('Top detection:')
+print(f.order(ascending=False)[:5])
+print('')
+
+# Show top predictions for second-best detection.
+f = pd.Series(df['prediction'].iloc[j], index=labels_df['name'])
+print('Second-best detection:')
+print(f.order(ascending=False)[:5])
+
+# Show top detection in red, second-best top detection in blue.
+im = plt.imread('images/fish-bike.jpg')
+plt.imshow(im)
+currentAxis = plt.gca()
+
+det = df.iloc[i]
+coords = (det['xmin'], det['ymin']), det['xmax'] - det['xmin'], det['ymax'] - det['ymin']
+currentAxis.add_patch(plt.Rectangle(*coords, fill=False, edgecolor='r', linewidth=5))
+
+det = df.iloc[j]
+coords = (det['xmin'], det['ymin']), det['xmax'] - det['xmin'], det['ymax'] - det['ymin']
+currentAxis.add_patch(plt.Rectangle(*coords, fill=False, edgecolor='b', linewidth=5))
+```
+
 
 ![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/2_Examples/fish-bike-detected.jpg)
 
-and we're good.
+
 

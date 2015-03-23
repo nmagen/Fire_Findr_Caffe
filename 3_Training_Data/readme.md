@@ -3,54 +3,53 @@ Building the Training Data Set
 
 ### How to build the data set
 
-I will use flickr as the sorce of my images. The images that i am downlaoding were realased into the public domain under the crative commons lickes (more info [here](https://www.flickr.com/creativecommons/)). Downlaoding images with a given "tag" is fairly straight forward with the pyhton program in this folder (see [here](/flickr_download.py)). The chalanging part is determing how what images to download in order to build an effective training set for our task.
+I will use flickr as the source of my images. The images that i am downlaoding were realased into the public domain under the crative commons lickes (more info [here](https://www.flickr.com/creativecommons/)). Downloading images with a given "tag" is fairly straightforward with the python program in this folder (see [here](/flickr_download.py)). The challenging part is determining how what images to download in order to build an effective training set for our task.
 
 
 ### Discussion: building a good training set.
 
-To under stand what makes a "good" training set we need to think more about what we are actually trying to do. 
+To understand what makes a "good" training set we need to think more about what we are actually trying to do. 
 
-Fundamentially we are try to detect things that are on fire that should not be on file. As humans we ahve a pritty good concept of what should and shold not be on fire. This understanding is derived from our life experinces. Building this traning set is our way of letting the algorithm experence things.
+Fundamentally we are try to detect things that are on fire that should not be on file. As humans we have a pretty good concept of what should and should not be on fire. This understanding is derived from our life experiences. Building this training set is our way of letting the algorithm experience things.
 
-Consistant with:
+Consistent with:
 
 ---
 
-**For an image with visable flams the algorithm need to understand that the object on fire is only important sometimes.**
+**For an image with visible flames the algorithm need to understand that the object on fire is only important sometimes.**
 
-For example houses and cars should never be on fire but matches, lanterns, candels both should be on fire. Simply put object that is "burning" need to be recignized. To acocmplish this I incoperated these words into my asdf:
+For example houses and cars should never be on fire but matches, lanterns, candles both should be on fire. Simply put object that is "burning" need to be recognized. To accomplish this I incorporated these words into my asdf:
 
 * positive: house on fire, car on fire, wildfire, brush fire
 
-* negative: match on fire, lantern, candel.
+* negative: match on fire, lantern, candle, fireplace, cigarette.
 
 ---
 
 **The algorithm needs to understand the importance of smoke.**
 
-For example black smoke is likely form a fire but wite "smoke" is likely just a cloud. This disctincion is further complicated in images where there are no visable flams. in such a case it would be impossible to udnersntant if the sorce of the flams is of concer. I incoperated this into my traning set by using:
+For example black smoke is likely form a fire but white "smoke" is likely just a cloud. This distinction is further complicated in images where there are no visible flames. in such a case it would be impossible to unrepentant if the source of the flame is of concern. I incorporated this into my training set by using:
 
 * positive: black smoke, fire smoke, 
 
-* negative: couds, white cloud blue sky
+* negative: clouds, white cloud blue sky
 
-Distinguishing smoke from a fire from a normal clound formation can be quire difficult as is shown in the image below.
+Distinguishing smoke from a fire from a normal cloud formation can be quite difficult as is shown in the image below.
 
 ![jpg](asdf)
 
 ---
 
-**The algorithm needs to damage that was uniquly caused by fire**
+**The algorithm needs to damage that was uniquely caused by fire**
 
-For example a fire can damage a house but so also can earthquacks and tornados. While fire will likely occure after an earthquack or tornado...
+For example a fire can damage a house but so also can earthquakes and tornados. While fire will likely occur after an earthquake or tornado...
 
 for example distinguishing these two images 
 
 
-
 * positive: fire damage
 
-* negative: earthquack damage, tornado damage
+* negative: earthquake damage, tornado damage
 
 
 ---
@@ -58,9 +57,10 @@ for example distinguishing these two images
 
 ### Conclusions
 
-by disecting how humans have come to udnerstand what should and shold not be on fire we can begin ot make the traning data inorder to show the alg how to do it. 
+by dissecting how humans have come to understand what should and should not be on fire we can begin to make the training data in order to show the alg how to do it. 
 
-hopefully this discuion has shead some light... haha
+hopefully this discussion has shed some light... haha
+
 
 
 
