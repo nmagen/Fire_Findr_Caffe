@@ -84,7 +84,7 @@ is correctly classifyed as:
 predicted class: 281
 ```
 
-### flickr style example
+### Flickr Style Example
 
 This examples illustrates how caffe can be used to do Transfer Learning (TL). TL is a way to make use of a network trained for one purpose in a different task. The advantage of this is mostly with regards to computational efficiency. I will talk more about the pros and cons of TL in section 3.
 
@@ -94,7 +94,7 @@ here what we do is...
 
 
 
-### R-CNN detector
+### R-CNN detector Example
 
 R-CNN is a state-of-the-art detector that classifies region proposals by a finetuned Caffe model. For the full details of the R-CNN system and model, refer to its project site and the paper:
 
