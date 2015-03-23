@@ -8,9 +8,7 @@ I will use flickr as the source of my images. The images that i am downlaoding w
 
 ### Discussion: building a good training set.
 
-To understand what makes a "good" training set we need to think more about what we are actually trying to do. 
-
-Fundamentally we are try to detect things that are on fire that should not be on file. As humans we have a pretty good concept of what should and should not be on fire. This understanding is derived from our life experiences. Building this training set is our way of letting the algorithm experience things.
+To understand what makes a "good" training set we need to think more about what we are actually trying to do. Fundamentally, we are trying to detect things that are on fire that should not be on fire. As humans we have a pretty good concept of what should and should not be on fire. This understanding is derived from our experiences. Building this training set is our way of letting the algorithm experience things.
 
 Consistent with:
 
@@ -56,10 +54,6 @@ for example distinguishing these two images
 
 
 ### Conclusions
-
-by dissecting how humans have come to understand what should and should not be on fire we can begin to make the training data in order to show the alg how to do it. 
-
-hopefully this discussion has shed some light... haha
 
 
 
