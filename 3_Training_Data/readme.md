@@ -10,7 +10,7 @@ I will use flickr as the source of my images. The images that I am downlaoding w
 
 After reviewing the literature the most useful training samples for classification with a neural networks are those that lie on the edge of the class distributions in feature space. This concept is ullustrated in the below figire form [here](https://github.com/JBed/Fire_Findr/blob/master/3_Training_Data/intel_training.pdf).
 
-![png](https://raw.githubusercontent.com/JBed/Fire_Findr/master/3_Training_Data/training.png some text)
+![png](https://raw.githubusercontent.com/JBed/Fire_Findr/master/3_Training_Data/training.png)
 
 
 
