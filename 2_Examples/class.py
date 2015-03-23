@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 caffe_root = '/opt/caffe/'
 
 import sys
-sys.path.insert(0, caffe_root + 'python')
+sys.path.insert(0, caffe_root + 'python') #only necessary if you did not update your PYTHON_PATH
 
 import caffe
 
@@ -31,9 +31,6 @@ prediction = net.predict([input_image])
 
 print 'predicted class:', prediction[0].argmax()
 
-#https://github.com/BVLC/caffe/tree/master/models/bvlc_reference_caffenet to find the caffemodel file
 #look in /opt/caffe/data/ilsvrc12/synset_words.txt for the meaning
-
-
-#predicted class: 974, 656
+#to update...
 
