@@ -22,7 +22,7 @@ Below I analyse importance border cases.
 
 **For an image with visible flames the algorithm need to understand that the object on fire is only important sometimes.**
 
-That is the alg need to not jsut detect flames but the context of the flams, and how this context realtes to out goal. For example houses and cars should never be on fire but matches, lanterns, candles both should be on fire. Simply put object that is "burning" need to be recognized. To accomplish this I incorporated these words into my asdf:
+That is the alg need to not just detect flames but the context of the flames, and how this context relates to our goal. For example houses and cars should never be on fire but matches, lanterns, candles both should be on fire. Simply put object that is "burning" need to be recognized. To accomplish this I incorporated these words into my asdf:
 
 * positive: house on fire, car on fire, wildfire, brush fire
 
@@ -32,7 +32,7 @@ That is the alg need to not jsut detect flames but the context of the flams, and
 
 **The algorithm needs to understand the importance of smoke.**
 
-For example black smoke is likely form a fire but white "smoke" is likely just a cloud. This distinction is further complicated in images where there are no visible flames. in such a case it would be impossible to determing the source of the flame (eg if this is an unwanted fire). I incorporated this into my training set by using:
+For example black smoke is likely form a fire but white "smoke" is likely just a cloud. This distinction is further complicated in images where there are no visible flames. in such a case it would be impossible to determine the source of the flame (eg if this is an unwanted fire). I incorporated this into my training set by using:
 
 * positive: black smoke, fire smoke, 
 
@@ -44,34 +44,42 @@ Distinguishing smoke from a fire from a normal cloud formation can be quite diff
 
 ---
 
-**The algorithm needs to be able to recignise damage that was uniquely caused by fire**
+**The algorithm needs to be able to recognise damage that was uniquely caused by fire**
 
-For example a fire can damage a house but so also can earthquakes and tornados. While fire will likely occur after an earthquake or tornado (althought fires often occure after a earthquake or tornado). I incorporated this into my training set by using:
+For example a fire can damage a house but so also can earthquakes and tornados. While fire will likely occur after an earthquake or tornado (although fires often occur after an earthquake or tornado). I incorporated this into my training set by using:
 
 * positive: fire damage
 
 * negative: earthquake damage, tornado damage
 
 
-For example distinguishing these two images would need to correctly laled.
+For example distinguishing these two images would need to correctly labeled.
 
 positive:
 
-![jpg](/adf)
+![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/3_Training_Data/fire_damage.jpg)
 
 negative:
 
-![jpg](/adf)
-
+![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/3_Training_Data/tornado_damage.jpg)
 
 
 ---
 
 ### Conclusions
 
-asdf...
+The take home message from this section is that:
+
+1.The individual training samples may vary greatly in importance and value. 
+
+2. complete description of each class in feature space is not required for an accurate classification. Therefore, the acquisition of training samples from beyond the border region is unnecessary.
+
+3. This relative importance of the training sites is a function of the specific purpose of the classifier.
+
+4. Sometimes the most informative training samples can only be identified after an initial training and test round. Therefore, training a classifier is an iterative process.
 
 
+In the next section we discuss and train our classifier.
 
 
 
