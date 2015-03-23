@@ -36,6 +36,7 @@ asdf
 
 The network definition is in ```${caffe_root}/models/bvlc_reference_caffenet/train_val.prototxt``` prototxt is the google protocol buffer file format (more info [here]()) (it;s similar to the json format). This file 
 
+
 include { phase: TRAIN } or include { phase: TEST } 
 
 this file also contain the various learning rates and the decay function....
@@ -71,8 +72,17 @@ for changing the number of nodes on the last layer of the neural net.
 
 **classifying images**
 
-Once you have generated your ```.caffemodel``` file you can classify new unseen images. One of the easiest ways  to do this is by making use the caffe python model. The authors provide a ipython notebook on this. I decided to adapt this into a python program with the added functionality of printing the predicted class name instead just the class number. Take a look at it [here](/class.py)
+Once you have generated your ```.caffemodel``` file form the above you can classify new unseen images. One of the easiest ways  to do this is by making use the caffe python model. The authors provide a ipython notebook on this. I decided to adapt this into a python program with the added functionality of printing the predicted class name instead just the class number. Take a look at it [here](/class.py)
 
+For example this image:
+
+![jpg](/cat.jpg)
+
+is correctly classifyed as:
+
+```
+predicted class: 281
+```
 
 ### flickr style example
 
@@ -80,4 +90,21 @@ This examples illustrates how caffe can be used to do Transfer Learning (TL). TL
 
 
 here what we do is...
+
+
+
+
+### R-CNN detector
+
+R-CNN is a state-of-the-art detector that classifies region proposals by a finetuned Caffe model. For the full details of the R-CNN system and model, refer to its project site and the paper:
+
+
+![jpg](/fish-bike.jpg)
+
+
+and detected at 
+
+![jpg](/fish-bike-detected.jpg)
+
+and we're good.
 
