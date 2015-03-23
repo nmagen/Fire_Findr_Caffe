@@ -1,12 +1,14 @@
 Building the Training Data Set
 ======
 
-### How to build the data set
+### How to download the data
 
-I will use flickr as the source of my images. The images that i am downlaoding were realased into the public domain under the crative commons lickes (more info [here](https://www.flickr.com/creativecommons/)). Downloading images with a given "tag" is fairly straightforward with the python program in this folder (see [here](/flickr_download.py)). The challenging part is determining how what images to download in order to build an effective training set for our task.
+I will use flickr as the source of my images. The images that I am downlaoding were realased into the public domain under the crative commons license (more info [here](https://www.flickr.com/creativecommons/)). Downloading images with a given "tag" is fairly straightforward with the python program in this folder (see [here](/flickr_download.py)). The challenging part is determining what images to download in order to build an effective training set for our task.
 
 
 ### Discussion: building a good training set.
+
+After reviewing the literature...
 
 To understand what makes a "good" training set we need to think more about what we are actually trying to do. Fundamentally, we are trying to detect things that are on fire that should not be on fire. As humans we have a pretty good concept of what should and should not be on fire. This understanding is derived from our experiences. Building this training set is our way of letting the algorithm experience things.
 
