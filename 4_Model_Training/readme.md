@@ -76,9 +76,3 @@ I bring this up because it really is not clear what is going on in this photo. W
 ---
 
 
-
-
-
-
-
-
