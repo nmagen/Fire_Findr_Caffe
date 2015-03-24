@@ -36,7 +36,7 @@ The detection of unwanted fire depends critically on the interaction of multiple
 
 for example this image:
 
-![jpg](/pot_fire)
+![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/4_Model_Training/pot_fire.jpg)
 
 was classified as on fire. What I think happened here is that the model does not understand two things.
 
@@ -46,7 +46,7 @@ was classified as on fire. What I think happened here is that the model does not
 
 I also noticed this photo 
 
-![jpg](/pride_fire)
+![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/4_Model_Training/pride_fire.jpg)
 
 was classified as fire. which is likely the result of the model over weighting the importance of firetrucks. the model should have understood that firetrucks are related to fire but not caused by fire.
 
@@ -58,7 +58,7 @@ many of the images (of the ones I actually looked at) in the training set were q
 
 for example here:
 
-![jpg](/busy)
+![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/4_Model_Training/busy.jpg)
 
 was classified as on not fire. What I think happened here is that the 
 
@@ -69,7 +69,7 @@ was classified as on not fire. What I think happened here is that the
 
 I also found this image listed as fire.
 
-![jpg](/ambiguous)
+![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/4_Model_Training/ambiguous.jpg)
 
 I bring this up because it really is not clear what is going on in this photo. We see people standing around and hoses on the ground but it;s not clear is there is an active fire. This photo represent difficulties in accurately labeling our training set. 
 
