@@ -76,5 +76,5 @@ The take home message from this section is that
 
 * This relative importance of the training sites is a function of the specific purpose of the classifier.
 
-* Sometimes the most informative training samples can only be identified after an initial training and test round. Therefore, training a classifier is an iterative process.
+* Sometimes the most informative training samples can only be identified after an initial training and test round. Therefore, training data set is an iterative process.
 
