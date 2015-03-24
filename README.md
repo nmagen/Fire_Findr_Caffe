@@ -14,7 +14,7 @@ Here I explain how to properly install the necessary software to get up and runn
 Here I work through two relevant examples provided in the caffe github repo.
 
 
-### [Getting the Training Data](/3_Training_Data)
+### [Training Data](/3_Training_Data)
 
 Overview of the how and what of the training data I used.
 
