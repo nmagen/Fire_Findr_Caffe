@@ -1,8 +1,6 @@
 Training the Model
 =====
 
-### How I trained my model
-
 **Data Preparation**
 
 The data was prepared as described in the ILSVRC12 Example in my 2_Examples folder. in total i used 50K images (split evenly positive and negative) in my training set and 1K in my testing set.
@@ -23,14 +21,14 @@ running took about 16hrs running on the K520 GPU. The last three lines of the sy
 
 ```
 Iteration 10000, loss = 3.12675
-Iteration 10000, Testing net (#0)
+Iteration 10000, Testing net
 Test net output: accuracy = 0.3835
 ```
 
 
 ### Analysis of errors
 
-Due to the time constraints I was not able to go over every misclassified test image. From the few misclassified examples I did look I have concluded:
+Due to the time constraints I was not able to go over every misclassified test image. From the few misclassified examples I did at look I have concluded:
 
 ---
 
@@ -54,7 +52,7 @@ I also noticed this photo
 
 ![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/4_Model_Training/pride_fire.jpg)
 
-was classified as fire. which is likely the result of the model over weighting the importance of firetrucks. the model should have understood that fire trucks are not, on their own, importance. This issue could be remedied by including image of firetrucks in parades in the negative training examples.
+was classified as fire. which is likely the result of the model over weighting the importance of firetrucks. the model should have understood that fire trucks are not, on their own, important. This issue could be remedied by including image of firetrucks in parades in the negative training examples.
 
 ---
 
@@ -64,7 +62,7 @@ Many of the images (of the ones I actually looked at) in the training set were q
 
 ![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/4_Model_Training/busy.jpg)
 
-was classified as on not fire. What I think happened here is that the busyness of the image caused problems for the classifier. Detecting multiple objects in a single image is known to be very difficult (see [here](http://karpathy.github.io/2014/09/02/what-i-learned-from-competing-against-a-convnet-on-imagenet/)). I'm not sure that adding more training example would necessarily remedy this issue.
+was classified as not on fire. What I think happened here is that the busyness of the image caused problems for the classifier. Detecting multiple objects in a single image is known to be very difficult (see [here](http://karpathy.github.io/2014/09/02/what-i-learned-from-competing-against-a-convnet-on-imagenet/)). I'm not sure that adding more training example would necessarily remedy this issue.
 
 ---
 
@@ -74,18 +72,17 @@ I also found this image listed as fire.
 
 ![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/4_Model_Training/ambiguous.jpg)
 
-I think that this image is interesting because it illustrates a case where it is really not clear to even a human what is going on. The building in the background does not appear to be damaged by fire (it;s possible that this was a false alarme). 
+I think that this image is interesting because it illustrates a case where it is really not clear to even a human what is going on. The building in the background does not appear to be damaged by fire (it's possible that this was a false alarme). 
 
-I bring this up because it really is not clear what is going on in this photo. We see people standing around and hoses on the ground but it;s not clear is there is an active fire. This photo represent difficulties in accurately labeling our training set. 
-
-Similar to the issue discussed above with the firetruck in a parade we need to make sure to find instances of firefighters at public events and include them in the training negative set.
+Similar to the issue discussed above with the firetruck in a parade we need to make sure to find instances of firefighters at public events (not fighting fire) and include them in the training negative set.
 
 
 ---
 
 ### Conclusion
 
-From the analysis above some modifications can be made to by training data set and the CNN re-trained. this iterative procedure will undouble improve performance. Unfortunately, there exist some aspect that will not be made better by including more (or more informative) image in the training set such as detecting multiple objects. 
+From the analysis above some modifications can be made to by training data set and the CNN re-trained. this iterative procedure will certainly improve performance. Unfortunately, there exist some aspect that will not be made better by including more (or more informative) image in the training set such as detecting multiple objects. 
+
 
 
 
