@@ -68,16 +68,13 @@ negative:
 
 ### Conclusions
 
-The take home message from this section is that:
+The take home message from this section is that
 
-1.The individual training samples may vary greatly in importance and value. 
+* The individual training samples may vary greatly in importance.
 
-2. complete description of each class in feature space is not required for an accurate classification. Therefore, the acquisition of training samples from beyond the border region is unnecessary.
+* Complete description of each class in feature space is not required for an accurate classification. Therefore, the acquisition of training samples from beyond the border region is unnecessary.
 
-3. This relative importance of the training sites is a function of the specific purpose of the classifier.
+* This relative importance of the training sites is a function of the specific purpose of the classifier.
 
-4. Sometimes the most informative training samples can only be identified after an initial training and test round. Therefore, training a classifier is an iterative process.
-
-
-
+* Sometimes the most informative training samples can only be identified after an initial training and test round. Therefore, training a classifier is an iterative process.
 
