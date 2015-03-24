@@ -93,46 +93,17 @@ This should download ```solver.prototxt``` and ```bvlc_reference_caffenet.caffem
 
 ### R-CNN detector Example
 
-
-Regional convolutional neural networks (R-CNN) classify regions in an image. For the full details of the R-CNN system and model, refer to its project site and the paper [here](https://github.com/rbgirshick/rcnn). This specific example deals with classifying regions in the below image.
-
+Regional convolutional neural networks (R-CNN) classify regions in an image. For the full details of the R-CNN system and model, refer to its project site and the paper [here](https://github.com/rbgirshick/rcnn). This specific example deals with classifying regions in the image below.
 
 ![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/2_Examples/fish-bike.jpg)
 
-This can be accomplished with 
+Here we are making use of the ILSVRC12 example model. The only real difference is that instead of declaring an entire image belonging to one of the 1000 classes we are searching for regions of an image (possible multiple reasons). This can be run using the rcnn.py file wiht:
 
 ```
-# Find, print, and display the top detections: person and bicycle.
-i = predictions_df['person'].argmax()
-j = predictions_df['bicycle'].argmax()
-
-# Show top predictions for top detection.
-f = pd.Series(df['prediction'].iloc[i], index=labels_df['name'])
-print('Top detection:')
-print(f.order(ascending=False)[:5])
-print('')
-
-# Show top predictions for second-best detection.
-f = pd.Series(df['prediction'].iloc[j], index=labels_df['name'])
-print('Second-best detection:')
-print(f.order(ascending=False)[:5])
-
-# Show top detection in red, second-best top detection in blue.
-im = plt.imread('images/fish-bike.jpg')
-plt.imshow(im)
-currentAxis = plt.gca()
-
-det = df.iloc[i]
-coords = (det['xmin'], det['ymin']), det['xmax'] - det['xmin'], det['ymax'] - det['ymin']
-currentAxis.add_patch(plt.Rectangle(*coords, fill=False, edgecolor='r', linewidth=5))
-
-det = df.iloc[j]
-coords = (det['xmin'], det['ymin']), det['xmax'] - det['xmin'], det['ymax'] - det['ymin']
-currentAxis.add_patch(plt.Rectangle(*coords, fill=False, edgecolor='b', linewidth=5))
+python rcnn.py
 ```
 
+This should output
 
 ![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/2_Examples/fish-bike-detected.jpg)
-
-
 

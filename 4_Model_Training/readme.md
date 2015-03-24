@@ -8,7 +8,7 @@ Training the Model
 The data was prepared as described in the ILSVRC12 Example in my 2_Examples folder.
 
 
-**Network overview**
+**Network Overview**
 
 As described in the ImageNet [paper](https://github.com/JBed/Fire_Findr/blob/master/4_Model_Training/imagenet.pdf):
 
@@ -20,7 +20,7 @@ Since we only have two class labels we will need to modify the `train_val.protot
 
 ### Results
 
-
+work in progress
 
 
 ### Analysis of errors
@@ -60,7 +60,7 @@ for example here:
 
 ![jpg](https://raw.githubusercontent.com/JBed/Fire_Findr/master/4_Model_Training/busy.jpg)
 
-was classified as on not fire. What I think happened here is that the 
+was classified as on not fire. What I think happened here is that the busyness of the image caused problems for the classifyer.
 
 
 ---
