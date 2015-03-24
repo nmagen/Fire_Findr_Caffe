@@ -3,75 +3,80 @@ Training the Model
 
 ### How I trained my model
 
-The data was prepared in the way described in...
+**Data Preparation**
+
+The data was prepared as described in the ILSVRC12 Example in my 2_Examples folder.
 
 
-**Loss fucntion**
+**Network overview**
 
-A loss function specifies the goal of learning by mapping parameter settings (i.e., the current network weights) to a scalar value specifying the “badness” of these parameter settings. Hence, the goal of learning is to find a setting of the weights that minimizes the loss function.
+As described in the ImageNet [paper](https://github.com/JBed/Fire_Findr/blob/master/4_Model_Training/imagenet.pdf):
 
-**Solver**
+> the net contains eight layers with weights; the first five are convolutional and the remaining three are fully-connected. The output of the last fully-connected layer is fed to a 1000-way softmax which produces a distribution over the 1000 class labels. Our network maximizes the multinomial logistic regression objective, which is equivalent to maximizing the average across training cases of the log-probability of the correct label under the prediction distribution.
 
-to opt the loss fucntion I used SGD.
+Since we only have two class labels we will need to modify the `train_val.prototxt` file so that the last fully-connected layer is feeds to a 2-way softmax. I will use stochastic gradient descent to optimise.
 
 
-### Resultes
 
-asdf
+### Results
+
+
 
 
 ### Analysis of errors
 
-Due to the time contrsins I was not able to go over every miss classifyed example. From the few missclassifyed examples I did look at and from review relavant literature I have concluded:
-
----
-
-**detecting Multiple objects in a single immage is diffuclt**
-
-The detection of unwanted fire depends critically on the interation of multiple objects. In the case of visable fire the model needs to see that somehting is "burning" and at least partially identiy this object. 
-
-
-this is known to be diff....
-
----
-
-**fine details are improtance**
-
-In the case of just visable smoke the model needs to understand how the details of the smoke distinguish it from just a cloud
-
-
-this is known to be diff...
-
+Due to the time constraints I was not able to go over every misclassified example. From the few misclassified examples I did look I have concluded:
 
 
 ---
 
-**the big picture is important***
+**Detecting Multiple objects in a single image is difficult**
 
-for distingusing fire damage from damage caused by earthquacks or tornados the model need to not focus on the specifiys of how things are lay (as this random)
+The detection of unwanted fire depends critically on the interaction of multiple objects. In the case of visible fire the model needs to see that something is "burning" and at least partially identify this object. 
 
-insead needs to look at the big picture such as black-ness that is uniquly caused 
+for example this image:
+
+![jpg](/pot_fire)
+
+was classified as on fire. What I think happened here is that the model does not understand two things.
+
+1. there is also a pot present in this photo 
+
+2. that the significance of this pot is that it is meant for cooking.
+
+I also noticed this photo 
+
+![jpg](/pride_fire)
+
+was classified as fire. which is likely the result of the model over weighting the importance of firetrucks. the model should have understood that firetrucks are related to fire but not caused by fire.
+
+---
+
+**Knowing which information to ignore is difficult**
+
+many of the images (of the ones I actually looked at) in the training set were quite busy.
+
+for example here:
+
+![jpg](/busy)
+
+was classified as on not fire. What I think happened here is that the 
 
 
 ---
 
+**Ambiguous Images** 
 
-the chalange for our model is to excell at each of these tasks... whihc is difficult.
+I also found this image listed as fire.
 
+![jpg](/ambiguous)
 
+I bring this up because it really is not clear what is going on in this photo. We see people standing around and hoses on the ground but it;s not clear is there is an active fire. This photo represent difficulties in accurately labeling our training set. 
 
-### conclusions
-
--> As mentioned the conclusiton of the building the training set... training is a process....
-
-
--> Even with mroe time to iterativly improve our training set (and therefor classifyer) there are still fundametal issure that remin. 
+---
 
 
 
--> overall fire is multi facited in nature this muti-fasitiness make it;s detection difficult.
-
-or soemthing like this...
 
 
 
