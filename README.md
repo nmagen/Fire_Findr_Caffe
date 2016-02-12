@@ -1,4 +1,4 @@
-Fire_Findr
+Fire Findr Caffe
 ======
 
 Here I explan how I used the Deep learning framework [Caffe](http://caffe.berkeleyvision.org/) to detect images that contain fire. Specifcally, we are trying to detect fire that is distructive in nature. I have broken things up into four sections outlined below. 
@@ -22,8 +22,4 @@ Overview of the how and what of the training data I used.
 ### [Training the Model](/4_Model_Training)
 
 Explanation of how I trained the model.
-
-
-
-
 
